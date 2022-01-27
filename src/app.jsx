@@ -17,7 +17,7 @@ function App({ authSerivce }) {
             <Route path="/signup">
               <SignUp authService={authSerivce} />
             </Route>
-            <Route path="/signup">
+            <Route path="/babyinfo">
               <BabyInfo authService={authSerivce} />
             </Route>
         </Switch>

@@ -47,13 +47,13 @@ const Login = ({authService}) => {
         }
     }
 
-    useEffect(() => {
+    /*useEffect(() => {
             authService
             .onAuthChange(user => {
                     user && goToBabyInfo(user.uid)
                 })
         })
-
+    */
     return (
         <section className={styles.loginbox}>
             <Header />
