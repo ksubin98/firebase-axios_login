@@ -4,6 +4,7 @@ import Login from './components/login/login';
 import styles from './app.module.css';
 import SignUp from './components/signup/signup';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import BabyInfo from './components/babyinfo/babyinfo';
 
 function App({ authSerivce }) {
   return (
@@ -15,6 +16,9 @@ function App({ authSerivce }) {
             </Route>
             <Route path="/signup">
               <SignUp authService={authSerivce} />
+            </Route>
+            <Route path="/signup">
+              <BabyInfo authService={authSerivce} />
             </Route>
         </Switch>
       </Router>

@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Header from "../header/header";
 import styles from './login.module.css';
 import { useHistory } from "react-router-dom";
@@ -12,13 +12,13 @@ const Login = ({authService}) => {
     const [password, setPassword] = useState('');
 
 
-    /*const goToMaker = (userId) => {
+    const goToBabyInfo = (userId) => {
         history.push({
-            pathname: '/maker',
+            pathname: '/babyinfo',
 
             state: {id: userId}
         })
-    }*/
+    }
 
     const goToSignUp = () => {
         history.push('/signup');
@@ -27,15 +27,13 @@ const Login = ({authService}) => {
     const onSocialLogin = event => {
         authService
             .login(event.currentTarget.textContent)
-            //.then((userId) => goToMaker(userId.user.uid))
-            .then(console.log);
+            .then((userId) => goToBabyInfo(userId.user.uid))
     }
     const onEmailLogin = event => {
         event.preventDefault();
         authService
             .signin(email.trim(), password)
-            //.then((userId) => goToMaker(userId.user.uid))
-            .then(console.log);
+            .then((userId) => goToBabyInfo(userId.user.uid))
     }
 
     const handleOnChange = (event) => {
@@ -49,12 +47,13 @@ const Login = ({authService}) => {
         }
     }
 
-    /*    useEffect(() => {
+    useEffect(() => {
             authService
-                .onAuthChange(user => {
-                    user && goToMaker(user.uid)
+            .onAuthChange(user => {
+                    user && goToBabyInfo(user.uid)
                 })
-        });*/
+        })
+
     return (
         <section className={styles.loginbox}>
             <Header />
@@ -65,7 +64,7 @@ const Login = ({authService}) => {
                         <input 
                             type="text"
                             className={styles.email}
-                            placeholder="Email"
+                            placeholder="ID"
                             name="email"
                             onChange={handleOnChange}
                         /> 
@@ -75,8 +74,8 @@ const Login = ({authService}) => {
                         <input 
                             type="text"
                             className={styles.email}
-                            placeholder={"Password"}
-                            name="password"
+                            placeholder="사용자 이름"
+                            name="사용자 이름"
                             onChange={handleOnChange}
                         /> 
                         </li>
