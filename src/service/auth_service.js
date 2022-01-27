@@ -28,7 +28,7 @@ class AuthService {
 
     getProvider(providerName) {
         switch (providerName) {
-            case 'Google ':
+            case 'Google':
                 return googleProvider;
             case 'Facebook':
                 return facebookProvider;

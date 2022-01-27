@@ -3,13 +3,21 @@ import './app.module.css';
 import Login from './components/login/login';
 import styles from './app.module.css';
 import SignUp from './components/signup/signup';
-import { auth } from 'firebase';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App({ authSerivce }) {
   return (
     <div className={styles.app}>
-      <Login authService={authSerivce}/>
-      <SignUp authService={authSerivce} />
+      <Router>
+        <Switch>
+            <Route exact path={['/', '/home']}>
+              <Login authService={authSerivce}/>
+            </Route>
+            <Route path="/signup">
+              <SignUp authService={authSerivce} />
+            </Route>
+        </Switch>
+      </Router>
     </div>
   )
 }

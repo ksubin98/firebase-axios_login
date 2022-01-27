@@ -1,7 +1,7 @@
 import React, {useState, useRef} from 'react';
 import Header from "../header/header";
 import styles from './login.module.css';
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Login = ({authService}) => {
 
@@ -21,8 +21,9 @@ const Login = ({authService}) => {
     }*/
 
     const goToSignUp = () => {
-        history.push('/signup')
+        history.push('/signup');
     }
+
     const onSocialLogin = event => {
         authService
             .login(event.currentTarget.textContent)
@@ -32,7 +33,7 @@ const Login = ({authService}) => {
     const onEmailLogin = event => {
         event.preventDefault();
         authService
-            .signIn(email.trim(), password)
+            .signin(email.trim(), password)
             //.then((userId) => goToMaker(userId.user.uid))
             .then(console.log);
     }
@@ -89,7 +90,7 @@ const Login = ({authService}) => {
                 <ul className={styles.social}>
                     <div className={styles.text}>Social Login</div>
                     <button className={styles.google} onClick={onSocialLogin}>Google</button>
-                    <button className={styles.facebook} onClick={onSocialLogin}>Fackebook</button>
+                    <button className={styles.facebook} onClick={onSocialLogin}>Facebook</button>
                 </ul>
             </section>
         </section>
