@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import Header from "../header/header";
 import styles from './login.module.css';
 import { useHistory } from "react-router-dom";
@@ -60,22 +60,22 @@ const Login = ({authService}) => {
             <section>
                 <ul>
                     <form ref={inputRef} className={styles.inputlogin} onSubmit={onEmailLogin}>
-                        <li className={styles.list}> 
+                        <li className={styles.inputlist}> 
                         <input 
                             type="text"
                             className={styles.email}
-                            placeholder="ID"
+                            placeholder="Email"
                             name="email"
                             onChange={handleOnChange}
                         /> 
                         </li>
                         
-                        <li className={styles.list}> 
+                        <li className={styles.inputlist}> 
                         <input 
-                            type="text"
+                            type="password"
                             className={styles.email}
-                            placeholder="사용자 이름"
-                            name="사용자 이름"
+                            placeholder="Password"
+                            name="password"
                             onChange={handleOnChange}
                         /> 
                         </li>
@@ -86,10 +86,9 @@ const Login = ({authService}) => {
                         <button className={styles.signup} onClick={goToSignUp}>Sign up</button>
                     </div>
                 </ul>
-                <ul className={styles.social}>
-                    <div className={styles.text}>Social Login</div>
-                    <button className={styles.google} onClick={onSocialLogin}>Google</button>
-                    <button className={styles.facebook} onClick={onSocialLogin}>Facebook</button>
+                <ul className={styles.social_login}>
+                    <button className={`${styles.list} ${styles.google}`} onClick={onSocialLogin}>Google</button>
+                    <button className={`${styles.list} ${styles.facebook}`} onClick={onSocialLogin}>Facebook</button>
                 </ul>
             </section>
         </section>
